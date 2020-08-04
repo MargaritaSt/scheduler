@@ -6,11 +6,12 @@ export default function DayListItem(props) {
   let textLight;
   let itemClass = "day-list__item";
   if (props.selected) {
-    itemClass += "--selected"
+    //itemClass += "--selected"
+    itemClass = `${itemClass} ${itemClass}--selected`
   }
 
   if (props.spots === 0) {
-    itemClass += "--full"
+    itemClass = `${itemClass} ${itemClass}--full`
     textLight = "no spots remaining"
   } else if (props.spots === 1) {
     textLight = props.spots + " spot remaining"
