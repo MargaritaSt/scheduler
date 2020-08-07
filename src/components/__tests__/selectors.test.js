@@ -1,4 +1,4 @@
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 
 const state = {
   days: [
@@ -38,6 +38,21 @@ const state = {
       id: 2,
       name: "Tori Malcolm",
       avatar: "https://i.imgur.com/Nmx0Qxo.png"
+    },
+    "3": {
+      id: 3,
+      name: "Tori Malcolm",
+      avatar: "https://i.imgur.com/Nmx0Qxo.png"
+    },
+    "4": {
+      id: 4,
+      name: "Tori Malcolm",
+      avatar: "https://i.imgur.com/Nmx0Qxo.png"
+    },
+    "5": {
+      id: 5,
+      name: "Tori Malcolm",
+      avatar: "https://i.imgur.com/Nmx0Qxo.png"
     }
   }
 };
@@ -55,8 +70,8 @@ test.skip("getAppointmentsForDay returns an array with a length matching the num
 
 test.skip("getAppointmentsForDay returns an array containing the correct appointment objects", () => {
   const [first, second] = getAppointmentsForDay(state, "Tuesday");
-  expect(first).toEqual(state.appointments["4"]);
-  expect(second).toEqual(state.appointments["5"]);
+  expect(first).toEqual(state.interviewers["4"]);
+  expect(second).toEqual(state.interviewers["5"]);
 });
 
 test.skip("getAppointmentsForDay returns an empty array when the days data is empty", () => {
