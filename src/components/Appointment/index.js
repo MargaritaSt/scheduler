@@ -6,6 +6,7 @@ import Show from "./Show";
 import Header from "./Header";
 import Form from "./Form";
 import Status from "./Status";
+import Confirm from './Confirm';
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
@@ -30,13 +31,17 @@ export default function Appointment (props) {
       }
 
     const del = () => {
-        //transition(DELETE)
+        //transition(CONFIRM)
         transition(DELETE)
         props.cancelInterview(props.id)
             .then(() => transition(EMPTY))
             .catch((error) => console.log(error))
         //transition(EMPTY)
     };
+
+    const confirm = () => {
+        transition(CONFIRM)
+    }
 
       //const delete = {}
      return (
@@ -45,6 +50,13 @@ export default function Appointment (props) {
                     time = {props.time}
                 />
                 <article className="appointment">
+                    {mode === CONFIRM && (
+                        <Confirm
+                            message={"Delete the appointment?"}
+                            onConfirm={del}
+                            onCancel={back}
+                        />
+                    )}
                     {mode === SAVING && <Status message={"Saving"} />}
                     {mode === DELETE && <Status message={"Deleting"} />}
                     {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />} 
@@ -52,7 +64,7 @@ export default function Appointment (props) {
                         <Show
                             student={props.interview.student}
                             interviewer={props.interview.interviewer}
-                            onDelete={del}
+                            onDelete={confirm}
                         />
                     )}
                     {mode === CREATE && (
