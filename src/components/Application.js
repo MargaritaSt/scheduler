@@ -12,14 +12,13 @@ export default function Application(props) {
       ...state.appointments[id],
       interview: { ...interview }
     };
-    
     const appointments = {
       ...state.appointments,
       [id]: appointment
     };
     setState({...state, appointments});
-    console.log(appointment)
-    axios.put('/api/appointments/:id', appointment)
+    axios.put(`/api/appointments/${id}`, appointment)
+    .catch(error => console.log(error))
   }
   
   const [state, setState] = useState({
