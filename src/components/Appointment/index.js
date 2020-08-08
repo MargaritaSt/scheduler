@@ -22,18 +22,10 @@ export default function Appointment (props) {
         };
         
         transition(SAVING)
-        
-        //console.log(mode)
         props.bookInterview(props.id, interview)
-            //.then(() => transition(SHOW))
-            //.catch((error) => console.log(error))
-        transition(SHOW)
+            .then(() => transition(SHOW))
+            .catch((error) => console.log(error))
       }
-
-    //let render;
-    //props.interview ? render = <Show student = {props.interview.student} interviewer = {props.interview.interviewer }/> : render = <Empty/>
-    
-    //console.log(mode)
      return (
             <Fragment>
                 <Header 

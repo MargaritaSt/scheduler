@@ -17,8 +17,8 @@ export default function Application(props) {
       [id]: appointment
     };
     setState({...state, appointments});
-    axios.put(`/api/appointments/${id}`, appointment)
-    .catch(error => console.log(error))
+    return axios.put(`/api/appointments/${id}`, appointment)
+      .catch(error => console.log(error))
   }
   
   const [state, setState] = useState({
