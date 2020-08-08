@@ -37,8 +37,6 @@
         return interviewersArray;
     }   
      //through the day obj-appointment array and retern the interviewer by id from bd interviewers
-    console.log(filteredInterviewers);
-  
     for (const item of filteredInterviewers) {
         for (const id of item.interviewers) {
            interviewersArray.push(state.interviewers[id]);

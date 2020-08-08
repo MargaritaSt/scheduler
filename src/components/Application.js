@@ -3,11 +3,25 @@ import axios from "axios";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay} from "../helpers/selectors";
-
-
 import "components/Application.scss";
 
 export default function Application(props) {
+  
+  const bookInterview = (id, interview) => {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    setState({...state, appointments});
+    console.log(appointment)
+    axios.put('/api/appointments/:id', appointment)
+  }
+  
   const [state, setState] = useState({
     day: "Monday",
     days:[],
@@ -39,6 +53,7 @@ export default function Application(props) {
         time={appointment.time} 
         interview={interview} 
         interviewers={interviewers}
+        bookInterview={bookInterview}
         />
     )
   })
