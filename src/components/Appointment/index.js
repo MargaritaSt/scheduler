@@ -35,13 +35,11 @@ export default function Appointment (props) {
       }
 
     const del = () => {
-        //transition(CONFIRM)
         transition(DELETE,true)
         props
             .cancelInterview(props.id)
             .then(() => transition(EMPTY))
             .catch((error) => transition(ERROR_DELETE,true))
-        //transition(EMPTY)
     };
 
     const confirm = () => {
@@ -51,8 +49,7 @@ export default function Appointment (props) {
     const edit = () => {
         transition(EDIT);
     }
-    console.log(props)
-      //const delete = {}
+    
      return (
             <Fragment>
                 <Header 
