@@ -17,8 +17,9 @@ import { render,
 import Application from "components/Application";
 
 afterEach(cleanup);
+describe("Application", () => {
 /* test number one */
-it("defaults to Monday and changes the schedule when a new day is selected", () => {
+it.skip("defaults to Monday and changes the schedule when a new day is selected", () => {
   const { getByText } = render(<Application />);
   return waitForElement(() => getByText("Monday")).then(() => {
     fireEvent.click(getByText("Tuesday"));
@@ -27,7 +28,7 @@ it("defaults to Monday and changes the schedule when a new day is selected", () 
 });
 
 /* test number two */
-it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
+it.skip("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
   const { container, debug } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -55,7 +56,7 @@ it("loads data, books an interview and reduces the spots remaining for Monday by
 });
 
 /* test number three */
-it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
+it.skip("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
   // 1. Render the Application.
   const { container, debug } = render(<Application />);
 
@@ -96,7 +97,7 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
 });
 
 /* test number four */
-it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+it.skip("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
   const { container, debug } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -120,7 +121,7 @@ it("loads data, edits an interview and keeps the spots remaining for Monday the 
 
 /* test number five */
 
-it("shows the save error when failing to save an appointment", async () => {
+it.skip("shows the save error when failing to save an appointment", async () => {
   const { container, debug } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -147,7 +148,7 @@ it("shows the save error when failing to save an appointment", async () => {
 })
 
 /* test number six */
-it("shows the delete error when failing to delete an appointment", async () => {
+it.skip("shows the delete error when failing to delete an appointment", async () => {
 
   const { container, debug } = render(<Application />);
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -163,3 +164,4 @@ it("shows the delete error when failing to delete an appointment", async () => {
   debug();
 })
 
+});
