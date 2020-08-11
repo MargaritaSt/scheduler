@@ -24,7 +24,7 @@ export default function DayListItem(props) {
 
   return (
     //<li onClick = {props.setDay}>  //It also works but in the example bellow it works as a function and can return the week day
-      <li onClick={() => props.setDay(props.name)} className={itemClass}>
+      <li onClick={() => props.setDay(props.name)} className={itemClass} data-testid="day">
         <h2 className="text--regular">{props.name}</h2> 
         <h3 className="text--light">{textLight}</h3>
     </li>
