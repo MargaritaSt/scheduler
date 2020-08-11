@@ -10,7 +10,8 @@ import { render,
          getByAltText,
          getByPlaceholderText,
          queryByText,
-         queryByAltText
+         queryByAltText,
+         getByDisplayValue
         } from "@testing-library/react";
 
 import Application from "components/Application";
@@ -95,3 +96,27 @@ it("loads data, cancels an interview and increases the spots remaining for Monda
   expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
   debug();
 });
+
+
+it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+  const { container, debug } = render(<Application />);
+
+  await waitForElement(() => getByText(container, "Archie Cohen"));
+  const appointment = getAllByTestId(container, "appointment").find(
+      appointment => queryByText(appointment, "Archie Cohen")
+    );
+  fireEvent.click(queryByAltText(appointment, "Edit"));
+  expect(getByDisplayValue(appointment, "Archie Cohen")).toBeInTheDocument();
+  fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
+    target: { value: "Leopold Silvers" }});
+  fireEvent.click(queryByAltText(appointment, "Tori Malcolm"))
+  fireEvent.click(getByText(appointment, "Save"));
+  expect(getByText(appointment, "Saving")).toBeInTheDocument();
+  await waitForElement(() => getByText(container, "Leopold Silvers"));
+  await waitForElement(() => getByText(container, "Tori Malcolm"));
+  const day = getAllByTestId(container, "day").find(day =>
+    queryByText(day, "Monday")
+  );
+  expect(getByText(day,"1 spot remaining")).toBeInTheDocument();
+  debug();
+})
