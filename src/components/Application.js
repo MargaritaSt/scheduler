@@ -28,7 +28,6 @@ export default function Application() {
   return (
     <main className="layout">
       <section className="sidebar">
-        {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
         <img
           className="sidebar--centered"
           src="images/logo.png"
@@ -49,7 +48,6 @@ export default function Application() {
         />
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
           {appointmentsData}
           <Appointment key ="last" time="5pm"/>
       </section>
