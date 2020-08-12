@@ -7,7 +7,7 @@ describe("Appointments", () => {
    cy.contains("Monday");
   });
  
-  /*it("should book an interview", () => {
+  it("should book an interview", () => {
    cy.get("[alt=Add]")
     .first()
     .click();
@@ -21,7 +21,7 @@ describe("Appointments", () => {
    cy.contains(".appointment__card--show", "Sylvia Palmer");
    
   });
-  */
+  
   it("should edit an interview", () => {
     cy.get("[alt=Edit]")
      .first()

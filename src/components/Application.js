@@ -51,6 +51,7 @@ export default function Application() {
       <section className="schedule">
         {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
           {appointmentsData}
+          <Appointment key ="last" time="5pm"/>
       </section>
     </main>
   );
