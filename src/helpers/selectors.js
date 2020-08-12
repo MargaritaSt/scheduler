@@ -1,5 +1,5 @@
 
- export function getAppointmentsForDay(state, day) {
+  export function getAppointmentsForDay(state, day) {
     let newArray = [];
     const filteredDays = state.days.filter(dayItem => dayItem.name === day);
     if (filteredDays.length === 0){  
@@ -11,6 +11,7 @@
     })
     return newArray;
 }
+
 
 //retern interviw obj
   export function getInterview(state, interview) {

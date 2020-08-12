@@ -19,7 +19,7 @@ import Application from "components/Application";
 afterEach(cleanup);
 describe("Application", () => {
 /* test number one */
-it.skip("defaults to Monday and changes the schedule when a new day is selected", () => {
+it("defaults to Monday and changes the schedule when a new day is selected", () => {
   const { getByText } = render(<Application />);
   return waitForElement(() => getByText("Monday")).then(() => {
     fireEvent.click(getByText("Tuesday"));
@@ -28,7 +28,7 @@ it.skip("defaults to Monday and changes the schedule when a new day is selected"
 });
 
 /* test number two */
-it.skip("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
+it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
   const { container, debug } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -52,11 +52,11 @@ it.skip("loads data, books an interview and reduces the spots remaining for Mond
   );
   
   expect(getByText(day, "no spots remaining")).toBeInTheDocument();
-    debug();
+
 });
 
 /* test number three */
-it.skip("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
+it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
   // 1. Render the Application.
   const { container, debug } = render(<Application />);
 
@@ -97,7 +97,7 @@ it.skip("loads data, cancels an interview and increases the spots remaining for 
 });
 
 /* test number four */
-it.skip("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
   const { container, debug } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -116,12 +116,12 @@ it.skip("loads data, edits an interview and keeps the spots remaining for Monday
     queryByText(day, "Monday")
   );
   expect(getByText(day,"1 spot remaining")).toBeInTheDocument();
-  debug();
+  //debug();
 })
 
 /* test number five */
 
-it.skip("shows the save error when failing to save an appointment", async () => {
+it("shows the save error when failing to save an appointment", async () => {
   const { container, debug } = render(<Application />);
 
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -144,11 +144,10 @@ it.skip("shows the save error when failing to save an appointment", async () => 
   expect(getByText(appointment, "Saving")).toBeInTheDocument();
   console.log(prettyDOM(appointment))
   await waitForElement(() => getByText(appointment, "Could not save appointment."));
-  debug();
 })
 
 /* test number six */
-it.skip("shows the delete error when failing to delete an appointment", async () => {
+it("shows the delete error when failing to delete an appointment", async () => {
 
   const { container, debug } = render(<Application />);
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -161,7 +160,6 @@ it.skip("shows the delete error when failing to delete an appointment", async ()
   fireEvent.click(getByText(appointment, "Confirm"));
   expect(getByText(appointment, "Deleting")).toBeInTheDocument();
   await waitForElement(() => getByText(appointment, "Could not cancel appointment."));
-  debug();
 })
 
 });
