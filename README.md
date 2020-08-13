@@ -66,6 +66,7 @@ npm run cypress
 - react-test-renderer 16.9.0
 
 ## Screnshots
-!["screenshot of Desktop Layout"](https://github.com/MargaritaSt/tweeter/blob/master/Docs/DesktopLayout.PNG?raw=true)
-!["screenshot of Mobile Device Layout"](https://github.com/MargaritaSt/tweeter/blob/master/Docs/MobileLayout.PNG?raw=true)
-!["screenshot of TextBox validation"](https://github.com/MargaritaSt/tweeter/blob/master/Docs/DesktopLayout-TextBoxValidation.PNG?raw=true)
+!["screenshot of Creating new appointment"](https://github.com/MargaritaSt/scheduler/blob/master/Docs/New%20Student.PNG?raw=true)
+!["screenshot of Saving new appointment"](https://github.com/MargaritaSt/scheduler/blob/master/Docs/Saving.png?raw=true)
+!["screenshot of appointemnt deletion confirmation"](https://github.com/MargaritaSt/scheduler/blob/master/Docs/DeleteConfirm.PNG?raw=true)
+!["screenshot of appointment deletion progress"](https://github.com/MargaritaSt/scheduler/blob/master/Docs/Deleting.png?raw=true)
