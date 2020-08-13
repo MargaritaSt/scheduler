@@ -2,12 +2,14 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 
 export default function useApplicationData() {
-    const [state, setState] = useState({
+  //Default value for useState  
+  const [state, setState] = useState({
         day: "Monday",
         days:[],
         appointments:{}
       });
 
+      //Extrating data from API server
       useEffect (() => {
         Promise.all ([
           Promise.resolve(axios.get("/api/days")),
@@ -24,6 +26,7 @@ export default function useApplicationData() {
 
       const spotsRemaing = (state,appointments) => {
         let appointmentsArray = [];
+        
         //Creating array with one selected day Object
         const filteredDays = state.days.filter(dayItem => dayItem.name === state.day);
         
@@ -88,5 +91,6 @@ export default function useApplicationData() {
           setState({...state, appointments, days: spotsRemaing(state, appointments)});
         })
       };
+      //passing state variable and functions to Application.js
       return {state, bookInterview, cancelInterview, setDay};
 }

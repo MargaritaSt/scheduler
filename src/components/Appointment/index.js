@@ -9,6 +9,7 @@ import Status from "./Status";
 import Confirm from './Confirm';
 import Error from './Error';
 
+//Variables to determine which window to display in the appointment list
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
@@ -50,7 +51,11 @@ export default function Appointment (props) {
         transition(EDIT);
     };
     
-     return (
+    
+    //Generating HTML with the appropriate form or message that corresponds to the appropriate transition
+    //when the user click on Create, Save, Edit or Delete button or just to display an appointment list 
+    //with the poperly formated appointments.
+    return (
             <Fragment>
                 <Header 
                     time = {props.time}

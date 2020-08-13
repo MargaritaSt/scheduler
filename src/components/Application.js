@@ -8,6 +8,7 @@ import  useApplicationData  from "../hooks/useApplicationData";
 export default function Application() {
   const { state, bookInterview, cancelInterview, setDay } = useApplicationData();
   
+  //Going through the appointments for the specific day and render appointment date to Appointemnt component
   const appointmentsData = getAppointmentsForDay(state, state.day).map(
     (appointment) => {
     const interview = getInterview(state, appointment.interview);
@@ -25,6 +26,7 @@ export default function Application() {
     )
   });
   
+  //Generation HTML code with appointment list
   return (
     <main className="layout">
       <section className="sidebar">
