@@ -1,5 +1,5 @@
-import {useState, useEffect} from 'react'
-import axios from 'axios'
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 
 export default function useApplicationData() {
     const [state, setState] = useState({
@@ -20,7 +20,7 @@ export default function useApplicationData() {
         .catch(error => console.log(error))
       },[]);
       
-      const setDay = day => setState({...state, day })
+      const setDay = day => setState({...state, day });
 
       const spotsRemaing = (state,appointments) => {
         let appointmentsArray = [];
@@ -30,7 +30,7 @@ export default function useApplicationData() {
         //Creating array with the appointments objects for the selected day
         filteredDays[0].appointments.forEach((element) => {
             appointmentsArray.push(appointments[element]);
-        })
+        });
 
         //Creating new array of the interview objects that have interview set to null
         let remainingSpots = 0;
@@ -39,7 +39,7 @@ export default function useApplicationData() {
                 remainingSpots++
             }
             return remainingSpots
-        })
+        });
         
         //Creating newDays array that has days array with updated spots
         let newDays = [];
@@ -50,9 +50,9 @@ export default function useApplicationData() {
             } else {
                 newDays.push(dayObj);
             }
-        })
+        });
         return newDays;
-      }
+      };
 
       const bookInterview = (id, interview) => {
         const appointment = {
@@ -68,7 +68,7 @@ export default function useApplicationData() {
             .then(() => {
             setState({...state, appointments, days: spotsRemaing(state, appointments)});
             })
-      }
+      };
       
     
       const cancelInterview = (id) => {
@@ -76,17 +76,17 @@ export default function useApplicationData() {
         const appointment = {
           ...state.appointments[id],
           interview: null
-        }
+        };
     
         const appointments = {
           ...state.appointments, 
           [id]: appointment
-        }
+        };
        
         return axios.delete(`/api/appointments/${id}`, appointment)
         .then(() =>  {
           setState({...state, appointments, days: spotsRemaing(state, appointments)});
         })
-      }
-      return {state, bookInterview, cancelInterview, setDay}
+      };
+      return {state, bookInterview, cancelInterview, setDay};
 }

@@ -1,5 +1,5 @@
-import React, {Fragment } from 'react'
-import "./styles.scss"
+import React, {Fragment } from 'react';
+import "./styles.scss";
 import  useVisualMode  from "../../hooks/useVisualMode";
 import Empty from "./Empty";
 import Show from "./Show";
@@ -16,8 +16,8 @@ const SAVING = "SAVING";
 const DELETE = "DELETE";
 const CONFIRM = "CONFIRM";
 const EDIT = "EDIT";
-const ERROR_SAVE = "ERROR_SAVE"
-const ERROR_DELETE = "ERROR_DELETE"
+const ERROR_SAVE = "ERROR_SAVE";
+const ERROR_DELETE = "ERROR_DELETE";
 
 export default function Appointment (props) {
     const {mode, transition, back} = useVisualMode (props.interview ? SHOW : EMPTY)
@@ -32,7 +32,7 @@ export default function Appointment (props) {
         props.bookInterview(props.id, interview)
             .then(() => transition(SHOW))
             .catch((error) => transition(ERROR_SAVE,true))
-      }
+      };
 
     const del = () => {
         transition(DELETE,true)
@@ -44,11 +44,11 @@ export default function Appointment (props) {
 
     const confirm = () => {
         transition(CONFIRM)
-    }
+    };
 
     const edit = () => {
         transition(EDIT);
-    }
+    };
     
      return (
             <Fragment>

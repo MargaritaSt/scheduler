@@ -23,7 +23,7 @@ export default function Application() {
         cancelInterview={cancelInterview}
         />
     )
-  })
+  });
   
   return (
     <main className="layout">
